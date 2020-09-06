@@ -1,4 +1,5 @@
 #include "root.h"
+#include "mailer.h"
 
 using namespace Cutelyst;
 
@@ -12,7 +13,8 @@ Root::~Root()
 
 void Root::index(Context *c)
 {
-    c->response()->body() = "Welcome to Cutelyst!";
+    c->response()->body() = "Welcome to Cutelyst! Now calling Mailer::sendMail()";
+    g_mailer->sendMail( "test", "test" );
 }
 
 void Root::defaultPage(Context *c)
